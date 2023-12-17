@@ -19,8 +19,8 @@
                     <thead>
                         <tr>
                             <th>Id Penjualan</th>
-                            <th>Kode Barang</th>
-                            <th>Kode Pelanggan</th>
+                            <th>Nama Barang</th>
+                            <th>Nama Pelanggan</th>
                             <th>Jumlah</th>
                             <th>Action</th>
                         </tr>
@@ -28,17 +28,27 @@
                     
                     <tbody>
                     <?php
-                    $result = mysqli_query($konek, "SELECT * FROM penjualan");
+                    $query = "SELECT
+                    p.id_penjualan,
+                    b.nama_barang,
+                    pl.nama_pelanggan,
+                    p.jumlah
+                    FROM penjualan p
+                    JOIN barang b ON p.kode_barang = b.kode_barang
+                    JOIN pelanggan pl ON p.kode_pelanggan = pl.kode_pelanggan" ;
+                    // $stockQuery = mysqli_query($konek, "SELECT SUM(jumlah) as total_stock FROM barang");
+                    // $stock = mysqli_fetch_assoc($stockQuery);
+                    $result = mysqli_query($konek, $query);
                     if ($result) {
                         while ($tampil = mysqli_fetch_assoc($result)) {
                     ?>
                             <tr>
                                 <td><?= $tampil['id_penjualan']?></td>    
-                                <td><?= $tampil['kode_barang']?></td>
-                                <td><?= $tampil['kode_pelanggan']?></td>
+                                <td><?= $tampil['nama_barang']?></td>
+                                <td><?= $tampil['nama_pelanggan']?></td>
                                 <td><?= $tampil['jumlah']?></td>
                                 <td>
-                                    <a class="fs-1 btn btn-warning" href='editpenjualan.php?id=<?= $tampil['id_penjualan'] ?>'><i class="fas fa-edit fa-fw"></i>Edit</a>
+                                    <a class="fs-1 btn btn-warning" href='?hal=ubah_penjualan&id=<?= $tampil['id_penjualan'] ?>'><i class="fas fa-edit fa-fw"></i>Edit</a>
                                     <a class="fs-1 btn btn-danger" href='hapuspenjualan.php?id=<?= $tampil['id_penjualan'] ?>'><i class="fas fa-trash fa-fw"></i>Hapus</a>
                                 </td>
                             </tr>

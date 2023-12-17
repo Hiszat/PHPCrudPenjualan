@@ -6,7 +6,7 @@
     // Melakukan eksekusi query
     if (mysqli_query($konek, $query)) {
         echo "<script type='text/javascript'>
-        window.location.href='tampilpelanggan.php';
+        window.location.href='index.php?hal=pelanggan';
         </script>";
     } else {
         echo "Error: " . $query . "<br>" . mysqli_error($konek);

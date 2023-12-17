@@ -8,7 +8,9 @@ function route($page)
         'tambah_barang' => 'inputbarang.php',
         'tambah_pelanggan' => 'inputpelanggan.php',
         'tambah_penjualan' => 'inputpenjualan.php',
-        'ubah_barang' => 'editbarang.php'
+        'ubah_barang' => 'editbarang.php',
+        'ubah_pelanggan' => 'editpelanggan.php',
+        'ubah_penjualan' => 'editpenjualan.php'
     ];
 
     if (array_key_exists($page, $pages)) {

@@ -42,7 +42,7 @@
                                 <td><?= $tampil['alamat']?></td>
                                 <td><?= $tampil['telp']?></td>
                                 <td>
-                                    <a class="fs-1 btn btn-warning" href='editpelanggan.php?pelanggan=<?= $tampil['kode_pelanggan'] ?>'><i class="fas fa-edit fa-fw"></i>Edit</a>
+                                    <a class="fs-1 btn btn-warning" href='?hal=ubah_pelanggan&pelanggan=<?= $tampil['kode_pelanggan'] ?>'><i class="fas fa-edit fa-fw"></i>Edit</a>
                                     <a class="fs-1 btn btn-danger" href='hapuspelanggan.php?pelanggan=<?= $tampil['kode_pelanggan'] ?>'><i class="fas fa-trash fa-fw"></i>Hapus</a>
                                 </td>
                             </tr>
